@@ -38,9 +38,7 @@ public class Servidor {
 
                 String newString = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
-                //System.out.println("Intentare asi: " + newString);
-
-                /**  */
+                
 
                 // Le envio un mensaje al cliente
                 out.writeUTF(newString.toLowerCase());
@@ -55,17 +53,5 @@ public class Servidor {
         }
 
     }
-
-    /**
-     * Aqui van otros procesos como quitar tildes, minusculas 4ever y los espacios
-     */
-
-    /*
-     * public String QuitarTildes(String mensajeModificado){
-     * 
-     * return mensajeModificado;
-     * 
-     * }
-     */
 
 }
