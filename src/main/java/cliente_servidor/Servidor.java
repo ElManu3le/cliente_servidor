@@ -27,22 +27,23 @@ public class Servidor {
                 socket = servidor.accept();
 
                 System.out.println("Cliente conectado..");
-                //in es el puente al servidor
+                // in es el puente al servidor
                 in = new DataInputStream(socket.getInputStream());
-                //out es el puente al cliente
+                // out es el puente al cliente
                 out = new DataOutputStream(socket.getOutputStream());
 
                 // Leo el mensaje que me envia
                 String mensaje = in.readUTF();
                 System.out.println("Mensaje del cliente:\t [" + mensaje + "]");
 
+                String newString = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
-                
-                
+                //System.out.println("Intentare asi: " + newString);
+
                 /**  */
 
                 // Le envio un mensaje al cliente
-                out.writeUTF(mensaje.toLowerCase());
+                out.writeUTF(newString.toLowerCase());
 
                 // Cierro el socket cliente
                 socket.close();
@@ -55,14 +56,16 @@ public class Servidor {
 
     }
 
-    /**Aqui van otros procesos como quitar tildes, minusculas 4ever y los espacios */
+    /**
+     * Aqui van otros procesos como quitar tildes, minusculas 4ever y los espacios
+     */
 
-    /*public String QuitarTildes(String mensajeModificado){
-
-        return mensajeModificado;
-
-    }*/
-
-
+    /*
+     * public String QuitarTildes(String mensajeModificado){
+     * 
+     * return mensajeModificado;
+     * 
+     * }
+     */
 
 }
