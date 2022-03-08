@@ -3,7 +3,6 @@ package cliente_servidor;
 import java.io.DataInputStream;
 import java.io.*;
 import java.net.*;
-import java.util.logging.*;
 
 public class Servidor {
 
@@ -36,10 +35,13 @@ public class Servidor {
                 // Leo el mensaje que me envia
                 String mensaje = in.readUTF();
                 System.out.println("Mensaje del cliente:\t [" + mensaje + "]");
+
+
+                
                 
                 /**  */
 
-                // Le envio un mensaje y se lo devuelvo al cliente
+                // Le envio un mensaje al cliente
                 out.writeUTF(mensaje.toLowerCase());
 
                 // Cierro el socket cliente
@@ -55,11 +57,11 @@ public class Servidor {
 
     /**Aqui van otros procesos como quitar tildes, minusculas 4ever y los espacios */
 
-    public String QuitarTildes(String mensaje){
+    /*public String QuitarTildes(String mensajeModificado){
 
-        return mensaje;
+        return mensajeModificado;
 
-    }
+    }*/
 
 
 
