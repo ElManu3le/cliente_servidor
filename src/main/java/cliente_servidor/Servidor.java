@@ -20,6 +20,8 @@ public class Servidor {
             servidor = new ServerSocket(PUERTO);
             System.out.println("El servidor esta iniciado");
 
+            Semaforo semaforo = new Semaforo(10);
+
             // Siempre estara escuchando peticiones
             while (true) {
 
@@ -36,12 +38,13 @@ public class Servidor {
                 String mensaje = in.readUTF();
                 System.out.println("Mensaje del cliente:\t [" + mensaje + "]");
 
-                String newString = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
+                //Sustituye las letras con tilde por sus correspondientes sin tilde
+                String sinTilde = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
-                
 
-                // Le envio un mensaje al cliente
-                out.writeUTF(newString.toLowerCase());
+
+                // Le envio un mensaje al cliente con mensaje modificado en minusculas, sin tildes y con solo un espacio
+                out.writeUTF(sinTilde.toLowerCase());
 
                 // Cierro el socket cliente
                 socket.close();
