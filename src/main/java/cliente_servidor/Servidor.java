@@ -41,7 +41,7 @@ public class Servidor {
                 //Sustituye las letras con tilde por sus correspondientes sin tilde
                 String sinTilde = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
-                String sinEspacios = sinTilde.replaceAll("\\s+", "");
+                String sinEspacios = sinTilde.replaceAll("\\s+", " ");
 
 
 
