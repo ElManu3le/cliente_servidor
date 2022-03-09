@@ -41,6 +41,7 @@ public class Servidor {
                 //Sustituye las letras con tilde por sus correspondientes sin tilde
                 String sinTilde = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
+                //Funcion encargada de colocar un solo espacio entre palabras.
                 String sinEspacios = sinTilde.replaceAll("\\s+", " ");
 
 
