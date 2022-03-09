@@ -41,10 +41,12 @@ public class Servidor {
                 //Sustituye las letras con tilde por sus correspondientes sin tilde
                 String sinTilde = mensaje.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u');
 
+                String sinEspacios = sinTilde.replaceAll("\\s+", "");
+
 
 
                 // Le envio un mensaje al cliente con mensaje modificado en minusculas, sin tildes y con solo un espacio
-                out.writeUTF(sinTilde.toLowerCase());
+                out.writeUTF(sinEspacios.toLowerCase());
 
                 // Cierro el socket cliente
                 socket.close();
